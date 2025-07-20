@@ -1,0 +1,175 @@
+/* -------------------- */
+/* RESET & BASE */
+/* -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corps Dashboard en flex colonne, min hauteur 100vh */
+body.dashboard-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* -------------------- */
+/* 🔐 STYLES POUR LOGIN */
+/* -------------------- */
+body.login-body {
+    background-color: #f4f6f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* -------------------- */
+/* 🧭 SIDEBAR FIXE */
+/* -------------------- */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212529;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+}
+
+.sidebar h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    color: #dee2e6;
+}
+
+.sidebar a {
+    color: #dee2e6;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a i {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/* -------------------- */
+/* 📊 STYLES POUR DASHBOARD */
+/* -------------------- */
+.dashboard-content {
+    margin-left: 220px; /* espace réservé pour sidebar */
+    padding: 30px;
+    padding-bottom: 60px; /* pour espacer du footer */
+    flex-grow: 1; /* pousse le footer vers le bas */
+    box-sizing: border-box;
+}
+
+.dashboard-header {
+    background-color: #e3f2fd;
+    border-left: 4px solid #007bff;
+    color: #212529;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* -------------------- */
+/* 🧱 CARDS STYLING */
+/* -------------------- */
+.card-matcompta {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.card-matcompta:hover {
+    transform: translateY(-5px);
+}
+
+.card .card-title i {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.card .table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* -------------------- */
+/* 🧬 GLOBAL ELEMENTS */
+/* -------------------- */
+a {
+    transition: color 0.2s ease;
+}
+
+.alert {
+    font-size: 0.95rem;
+    padding: 10px 15px;
+}

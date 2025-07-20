@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- Page d'accueil -->
+    <welcome-file-list>
+        <welcome-file>login-servlet</welcome-file>
+    </welcome-file-list>
+
+    <!-- ⛓ Servlet d'initialisation à démarrage -->
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>sn.groupeisi.matcompta.App</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/app-servlet</url-pattern>
+    </servlet-mapping>
+</web-app>
