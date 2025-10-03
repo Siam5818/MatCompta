@@ -16,14 +16,16 @@ public class UtilisateurRequest {
                 && email != null && !email.isBlank()
                 && motDePasse != null && !motDePasse.isBlank()
                 && phone != null && !phone.isBlank()
-                && estNumeroValide();
+                && estNumeroValide()
+                && role != null;
     }
 
     public boolean champValideSansMdp() {
         return nomComplet != null && !nomComplet.isBlank()
                 && email != null && !email.isBlank()
                 && phone != null && !phone.isBlank()
-                && estNumeroValide();
+                && estNumeroValide()
+                && role != null;
     }
 
 
@@ -32,6 +34,6 @@ public class UtilisateurRequest {
     }
 
     public boolean estNumeroValide() {
-        return phone != null && phone.matches("^[0-9]{9,15}$");
+        return phone != null && phone.matches("^\\+?[0-9]{9,15}$");
     }
 }

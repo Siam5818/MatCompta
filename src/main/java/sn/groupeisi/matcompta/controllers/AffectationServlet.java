@@ -4,6 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import sn.groupeisi.matcompta.entities.Affectation;
+import sn.groupeisi.matcompta.entities.Materiel;
 import sn.groupeisi.matcompta.enums.EtatMateriel;
 import sn.groupeisi.matcompta.requests.AffectationRequest;
 import sn.groupeisi.matcompta.services.AffectationService;
@@ -60,6 +61,13 @@ public class AffectationServlet extends HttpServlet {
                     req.getSession().setAttribute("errorMessage", "Cette affectation est déjà clôturée.");
                     resp.sendRedirect("affectation-servlet?action=list");
                     return;
+                }
+
+                // Liste des matériels disponibles + matériel déjà affecté
+                List<Materiel> listeMateriels = ms.listMaterielsDisponibles();
+                Materiel materielAffecte = aff.getMateriel();
+                if (!listeMateriels.contains(materielAffecte)) {
+                    listeMateriels.add(materielAffecte);
                 }
 
                 req.setAttribute("affectation", aff);

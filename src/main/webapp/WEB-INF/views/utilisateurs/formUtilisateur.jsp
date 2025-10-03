@@ -64,21 +64,27 @@
                         </div>
 
                         <!-- Mot de passe -->
-                        <c:if test="${empty utilisateur.id}">
-                            <div class="col-md-6">
-                                <label for="motDePasse" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control" id="motDePasse" name="motDePasse" required>
-                            </div>
-                        </c:if>
+                        <% if (isEdit) { %>
+                        <div class="col-md-6">
+                            <label for="motDePasse" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="motDePasse" name="motDePasse">
+                        </div>
+                        <% } %>
 
                         <!-- Rôle -->
                         <div class="col-md-6">
                             <label for="role" class="form-label">Rôle</label>
                             <select class="form-select" id="role" name="role" required>
                                 <option value="" hidden>-- Choisissez le Rôle --</option>
-                                <option value="EMPLOYEE" <%= isEdit && utilisateur.getRole().toString().equals("EMPLOYEE") ? "selected" : "" %>>Employé</option>
-                                <option value="COMPTABLE" <%= isEdit && utilisateur.getRole().toString().equals("COMPTABLE") ? "selected" : "" %>>Comptable</option>
-                                <option value="ADMIN" <%= isEdit && utilisateur.getRole().toString().equals("ADMIN") ? "selected" : "" %>>Administrateur</option>
+                                <option value="EMPLOYEE" <%= isEdit && utilisateur.getRole().toString().equals("EMPLOYEE") ? "selected" : "" %>>
+                                    Employé
+                                </option>
+                                <option value="COMPTABLE" <%= isEdit && utilisateur.getRole().toString().equals("COMPTABLE") ? "selected" : "" %>>
+                                    Comptable
+                                </option>
+                                <option value="ADMIN" <%= isEdit && utilisateur.getRole().toString().equals("ADMIN") ? "selected" : "" %>>
+                                    Administrateur
+                                </option>
                             </select>
                         </div>
 

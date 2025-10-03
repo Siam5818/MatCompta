@@ -56,18 +56,33 @@
                         </div>
 
                         <!-- Matériel -->
-                        <div class="col-md-6">
-                            <label class="form-label">Matériel</label>
-                            <select class="form-select" name="materielId"
-                                    required ${mode == 'signer' ? 'disabled' : ''}>
-                                <option value="" hidden>Choisir...</option>
-                                <c:forEach var="m" items="${listeMateriels}">
-                                    <option value="${m.id}" ${affectation != null && affectation.materiel.id == m.id ? 'selected' : ''}>
-                                            ${m.libelle} - ${m.reference}
-                                    </option>
-                                </c:forEach>
-                            </select>
-                        </div>
+                        <c:choose>
+                            <c:when test="${mode == 'signer'}">
+                                <!-- Champ lecture seule uniquement -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Matériel sélectionné</label>
+                                    <input type="text" class="form-control" readonly
+                                           value="${affectation.materiel.libelle} - ${affectation.materiel.reference}"
+                                           title="Ce matériel est verrouillé lors de la clôture"/>
+                                    <!-- Tu peux ajouter un champ caché si tu dois garder l'ID dans le POST -->
+                                    <input type="hidden" name="materielId" value="${affectation.materiel.id}"/>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <!-- Champ classique en mode ajout -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Matériel</label>
+                                    <select class="form-select" name="materielId" required>
+                                        <option value="" hidden>Choisir...</option>
+                                        <c:forEach var="m" items="${listeMateriels}">
+                                            <option value="${m.id}" ${affectation != null && affectation.materiel.id == m.id ? 'selected' : ''}>
+                                                    ${m.libelle} - ${m.reference}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
 
                         <!-- Date Affectation -->
                         <div class="col-md-6">

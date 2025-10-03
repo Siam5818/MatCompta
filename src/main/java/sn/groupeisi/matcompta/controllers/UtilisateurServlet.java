@@ -80,6 +80,7 @@ public class UtilisateurServlet extends HttpServlet {
                 if ("ADMIN".equals(roleParam)) {
                     req.setAttribute("errorMessage", "La création d'un administrateur est interdite.");
                     req.getRequestDispatcher("/WEB-INF/views/utilisateurs/formUtilisateur.jsp").forward(req, resp);
+                    System.out.println("Role non permis...");
                     return;
                 }
 
@@ -88,6 +89,14 @@ public class UtilisateurServlet extends HttpServlet {
                 if (!utilisateur.champValide()) {
                     req.setAttribute("errorMessage", "Les champs obligatoires sont invalides ou incomplets.");
                     req.getRequestDispatcher("/WEB-INF/views/utilisateurs/formUtilisateur.jsp").forward(req, resp);
+                    System.out.println("Champ manquant...");
+                    System.out.println("Nom : " + utilisateur.getNomComplet());
+                    System.out.println("Email : " + utilisateur.getEmail());
+                    System.out.println("Téléphone : " + utilisateur.getPhone());
+                    System.out.println("Mot de passe : " + utilisateur.getMotDePasse());
+                    System.out.println("Rôle : " + utilisateur.getRole());
+                    utilisateur.setRole(RoleUser.valueOf(roleParam));
+                    System.out.println("Rôle après setRole : " + utilisateur.getRole());
                     return;
                 }
 

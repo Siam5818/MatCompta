@@ -78,7 +78,7 @@
                                             </c:choose>">${m.etat}</span>
                                     </p>
                                     <p class="mb-1"><strong>Valeur :</strong> ${m.valeurAchat} FCFA</p>
-                                    <p class="mb-1"><strong>Date Achat :</strong> ${m.dateAchat} FCFA</p>
+                                    <p class="mb-1"><strong>Date Achat :</strong> ${m.dateAchat}</p>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end gap-2">
                                     <a href="materiel-servlet?action=edit&id=${m.id}" class="btn btn-sm btn-outline-primary" title="Modifier">
